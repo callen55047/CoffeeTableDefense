@@ -71,3 +71,74 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# =============== Unity Generated Files ===============
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Oo]bj/
+[Mm]emoryCaptures/
+
+# Asset Store Tools
+Assets/AssetStoreTools*
+
+# User-specific settings
+*.sln.docstates
+
+# Unity generated folders
+.aux/
+*.tmproj
+
+# Auto-generated JetBrains Rider project files
+.idea/
+*.sln.iml
+
+# Rider workspace-specific files
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+
+# Rider cache and logs
+.idea/.idea_modules/
+.idea/modules.xml
+
+# =============== OS-Specific ===============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# =============== Other ===============
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# JetBrains Rider local history (optional, remove if you want to track it)
+.idea/.history/
+
+# Crash logs and memory dumps
+*.stackdump
+*.dmp
+
+# Yarn/Node if using JS packages inside Unity
+node_modules/
+yarn.lock
+package-lock.json
