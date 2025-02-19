@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 21e2e89d0180b9e4bbc01786c55935a8
+timeCreated: 1554527234
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Environment/Rocks/TB_Env_RockA.prefab
+  uploadId: 658409

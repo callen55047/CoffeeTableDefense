@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b2a66d2f990441f4ea87d9a6ee5f9093
+timeCreated: 1571378321
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Soldiers/Blue/TB_Soldier_Archer_Blue.prefab
+  uploadId: 658409

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ca0f801e487f5254383de4c30056c7a8
+timeCreated: 1554534405
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Environment/Tree/TB_Env_Tree_A_Med.prefab
+  uploadId: 658409

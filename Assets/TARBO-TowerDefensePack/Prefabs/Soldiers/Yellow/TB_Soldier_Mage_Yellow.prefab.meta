@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0edd4ebda1c5e8c45bb3d9faa027f8ae
+timeCreated: 1571378501
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Soldiers/Yellow/TB_Soldier_Mage_Yellow.prefab
+  uploadId: 658409

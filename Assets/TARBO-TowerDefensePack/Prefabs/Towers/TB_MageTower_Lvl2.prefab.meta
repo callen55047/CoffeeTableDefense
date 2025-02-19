@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e58080f49911f2b4daa4c5be922b82a4
+timeCreated: 1554535394
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Towers/TB_MageTower_Lvl2.prefab
+  uploadId: 658409

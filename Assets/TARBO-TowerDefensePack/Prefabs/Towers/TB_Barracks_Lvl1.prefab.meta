@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9656a02aa4854a74ea27dcaec01e29a8
+timeCreated: 1554535195
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Towers/TB_Barracks_Lvl1.prefab
+  uploadId: 658409

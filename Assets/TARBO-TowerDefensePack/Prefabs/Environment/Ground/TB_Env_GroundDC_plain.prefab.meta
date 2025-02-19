@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e743ac3c54ab21b47b8340fe84b65834
+timeCreated: 1570671481
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Environment/Ground/TB_Env_GroundDC_plain.prefab
+  uploadId: 658409

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a69977860e46c4b42876403ce4b59fad
+timeCreated: 1556243071
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Crystals/TB_Str_Crystal_H.prefab
+  uploadId: 658409

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b0799de014f3d7a4ab57bef89de42b56
+timeCreated: 1556243192
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Structures/TB_Str_Bridge.prefab
+  uploadId: 658409

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 295367a53be34be418960329a201cc3a
+timeCreated: 1558028914
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Materials/Environment_Fall.mat
+  uploadId: 658409

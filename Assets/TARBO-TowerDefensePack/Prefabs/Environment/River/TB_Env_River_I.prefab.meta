@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 01c6a9d4e7891904db032c6a9b57b001
+timeCreated: 1556523711
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Environment/River/TB_Env_River_I.prefab
+  uploadId: 658409

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ed601eb795992ba4b96706a0a695de82
+timeCreated: 1554536355
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Towers/TB_CanonTower_Lvl4_A_Cons.prefab
+  uploadId: 658409

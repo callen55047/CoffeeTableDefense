@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 36b906a3c26c4e246bc0c87ea1bbdd7f
+timeCreated: 1571378445
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Soldiers/Red/TB_Soldier_Swordman_Red.prefab
+  uploadId: 658409

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 341c252aad192b347b9dd7265582ed67
+timeCreated: 1554527196
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 143627
+  packageName: Tower Defense Pack - Low Poly 3D Art
+  packageVersion: 1.4
+  assetPath: Assets/TARBO-TowerDefensePack/Prefabs/Environment/Mound/TB_Env_Mound_D.prefab
+  uploadId: 658409
