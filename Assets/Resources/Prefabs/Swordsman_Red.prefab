@@ -186,9 +186,11 @@ GameObject:
   - component: {fileID: -8386582903023354213}
   - component: {fileID: 2823859350676715339}
   - component: {fileID: -2486301714125952198}
+  - component: {fileID: 4024352213974155230}
+  - component: {fileID: 2838713692390753791}
   m_Layer: 0
   m_Name: Swordsman_Red
-  m_TagString: Untagged
+  m_TagString: RedEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,9 +327,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathParent: {fileID: 0}
-  moveForce: 0.15
+  moveForce: 0.5
   stopDistance: 0.01
   rotationSpeed: 360
+--- !u!195 &4024352213974155230
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866944711882940}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 1.420155
+  m_Speed: 0.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.434324
+  m_BaseOffset: 4.717162
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2838713692390753791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866944711882940}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef46f8f8ae4b4d07a316695318b3fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationObject: {fileID: 0}
 --- !u!1 &1911990075883896
 GameObject:
   m_ObjectHideFlags: 0

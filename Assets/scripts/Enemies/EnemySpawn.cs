@@ -1,30 +1,33 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+namespace Enemies
 {
-    public Transform spawnPoint;
-    public float spawnInterval = 1f;
-    public GameObject enemyPrefab;
-    public Transform pathsParent;
-
-    void Start()
+    public class EnemySpawner : MonoBehaviour
     {
-        StartCoroutine(SpawnEnemies());
-    }
+        public Transform spawnPoint;
+        public float spawnInterval = 1f;
+        public GameObject enemyPrefab;
+        public Transform pathsParent;
 
-    IEnumerator SpawnEnemies()
-    {
-        while (true)
+        void Start()
         {
-            GameObject enemyInstance = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            EnemyMovement enemyMovement = enemyInstance.GetComponent<EnemyMovement>();
-            if (enemyMovement != null && pathsParent.childCount > 0)
+            StartCoroutine(SpawnEnemies());
+        }
+
+        IEnumerator SpawnEnemies()
+        {
+            while (true)
             {
-                int randomIndex = Random.Range(0, pathsParent.childCount);
-                enemyMovement.pathParent = pathsParent.GetChild(randomIndex);
+                GameObject enemyInstance = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+                EnemyMovement enemyMovement = enemyInstance.GetComponent<EnemyMovement>();
+                if (enemyMovement != null && pathsParent.childCount > 0)
+                {
+                    int randomIndex = Random.Range(0, pathsParent.childCount);
+                    enemyMovement.pathParent = pathsParent.GetChild(randomIndex);
+                }
+                yield return new WaitForSeconds(spawnInterval);
             }
-            yield return new WaitForSeconds(spawnInterval);
         }
     }
 }
