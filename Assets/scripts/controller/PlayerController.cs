@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public void addLineTracer()
     {
         tracer = gameObject.AddComponent<LineTracer>();
+        // TODO: connect UI rotation and height sliders
         // tracer.onTransformOrNull += (transform) =>
         // {
         //     BoardManagerUI comp = settingsUICanvas.GetComponent<BoardManagerUI>();

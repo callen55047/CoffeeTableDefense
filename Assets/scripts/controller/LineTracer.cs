@@ -9,7 +9,6 @@ public class LineTracer : MonoBehaviour
 {
     [Header("Line Settings")]
     public float lineLength = 1f;
-    public Color lineColor = Color.red;
     
     public event TransformUpdate onTransformOrNull;
     
@@ -73,9 +72,8 @@ public class LineTracer : MonoBehaviour
     {
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
-        lineRenderer.startWidth = 0.01f;
-        lineRenderer.endWidth = 0.01f;
-        // lineRenderer.material = new Material(Shader.Find("Unlit/Color")) { color = lineColor };
+        lineRenderer.startWidth = 0f;
+        lineRenderer.endWidth = 0f;
     }
     
     private void NotifyListeners()
