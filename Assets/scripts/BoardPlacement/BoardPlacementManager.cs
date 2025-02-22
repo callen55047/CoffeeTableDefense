@@ -6,7 +6,8 @@ namespace BoardPlacement
 {
     public class BoardPlacementManager : MonoBehaviour
     {
-        [Header("AR Components")] public ARRaycastManager arRaycastManager;
+        [Header("AR Components")] 
+        public ARRaycastManager arRaycastManager;
         public GameObject boardPreview; // The ghost board in the AR world
 
         [Header("UI Controls")] public Slider heightSlider;

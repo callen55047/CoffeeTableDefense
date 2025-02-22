@@ -9,6 +9,7 @@ TagManager:
   - Path
   - Checkpoints
   - initArrow
+  - PlayerGO
   layers:
   - Default
   - TransparentFX
