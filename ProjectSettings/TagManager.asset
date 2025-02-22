@@ -7,6 +7,8 @@ TagManager:
   - MainCastle
   - RedEnemy
   - Path
+  - Checkpoints
+  - initArrow
   layers:
   - Default
   - TransparentFX

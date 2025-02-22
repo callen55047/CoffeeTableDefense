@@ -8,7 +8,6 @@ namespace Enemies
         public Transform spawnPoint;
         public float spawnInterval = 1f;
         public GameObject enemyPrefab;
-        public Transform pathsParent;
 
         void Start()
         {
@@ -19,13 +18,7 @@ namespace Enemies
         {
             while (true)
             {
-                GameObject enemyInstance = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-                EnemyMovement enemyMovement = enemyInstance.GetComponent<EnemyMovement>();
-                if (enemyMovement != null && pathsParent.childCount > 0)
-                {
-                    int randomIndex = Random.Range(0, pathsParent.childCount);
-                    enemyMovement.pathParent = pathsParent.GetChild(randomIndex);
-                }
+                Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
                 yield return new WaitForSeconds(spawnInterval);
             }
         }
