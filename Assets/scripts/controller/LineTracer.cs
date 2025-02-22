@@ -3,15 +3,17 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
 
+public delegate void TransformUpdate(Transform spawnedTransform);
+
 public class LineTracer : MonoBehaviour
 {
     [Header("Line Settings")]
     public float lineLength = 1f;
     public Color lineColor = Color.red;
-
-    [Header("Spawn Settings")]
-    public GameObject spawnPrefab;
-
+    
+    public event TransformUpdate onTransformOrNull;
+    
+    private GameObject spawnPrefab;
     private LineRenderer lineRenderer;
     private ARRaycastManager arRaycastManager;
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -20,14 +22,9 @@ public class LineTracer : MonoBehaviour
 
     void Start()
     {
+        spawnPrefab = Prefabs.BoardPlane();
         arRaycastManager = FindFirstObjectByType<ARRaycastManager>();
-        
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        lineRenderer.startWidth = 0.01f;
-        lineRenderer.endWidth = 0.01f;
-        lineRenderer.material = new Material(Shader.Find("Unlit/Color")) { color = lineColor };
-
+        ConfigureLineRenderer();
         playerLayer = gameObject.layer; // Set the player layer to ignore during raycasts
     }
 
@@ -52,39 +49,73 @@ public class LineTracer : MonoBehaviour
 
                 if (Mathf.Abs(verticalAlignment) > 0.9f) // Horizontal plane
                 {
-                    Pose hitPose = hit.pose;
-
-                    if (spawnedObject == null && spawnPrefab != null)
-                    {
-                        spawnedObject = Instantiate(spawnPrefab, hitPose.position, hitPose.rotation);
-                        Debug.Log("Spawned object on horizontal plane.");
-                    }
-                    else if (spawnedObject != null)
-                    {
-                        spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
-                    }
-
-                    return; // Stop after handling the first valid horizontal plane
+                    spawnOrUpdateObject(hit.pose);
+                    return;
                 }
                 else if (Mathf.Abs(verticalAlignment) < 0.1f) // Vertical plane
                 {
-                    if (spawnedObject != null)
-                    {
-                        Destroy(spawnedObject);
-                        spawnedObject = null;
-                        Debug.Log("Vertical plane hit. Destroyed spawned object.");
-                    }
-                    return;
+                    DestroySpawnedObject();
+                    return; // Exit after detecting a vertical plane
                 }
             }
         }
 
-        // No valid planes found; destroy the object if it exists
+        // No valid planes found
+        DestroySpawnedObject();
+    }
+
+    public Transform getHitTransform()
+    {
+        return spawnedObject?.transform;
+    }
+
+    private void ConfigureLineRenderer()
+    {
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.01f;
+        // lineRenderer.material = new Material(Shader.Find("Unlit/Color")) { color = lineColor };
+    }
+    
+    private void NotifyListeners()
+    {
+        onTransformOrNull?.Invoke(spawnedObject?.transform);
+    }
+
+    private void spawnOrUpdateObject(Pose hitPose)
+    {
+        if (spawnedObject == null && spawnPrefab != null)
+        {
+            spawnedObject = Instantiate(spawnPrefab, hitPose.position, hitPose.rotation);
+        }
+        else if (spawnedObject != null)
+        {
+            spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+        }
+        
+        NotifyListeners();
+    }
+
+    private void DestroySpawnedObject()
+    {
         if (spawnedObject != null)
         {
             Destroy(spawnedObject);
             spawnedObject = null;
-            Debug.Log("No valid plane found. Destroyed spawned object.");
+            NotifyListeners();
         }
+    }
+
+    void OnDestroy()
+    {
+        // Cleanup the line renderer
+        if (lineRenderer != null)
+        {
+            Destroy(lineRenderer);
+        }
+
+        // Cleanup the spawned object
+        DestroySpawnedObject();
     }
 }

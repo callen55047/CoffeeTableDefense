@@ -13,6 +13,7 @@ public class GameInstance : MonoBehaviour
     private GameObject player;
     private PlayerController controller;
     private EGameState gameState = EGameState.Main;
+    private GameObject gameBoard;
 
     void Start()
     {
@@ -33,16 +34,35 @@ public class GameInstance : MonoBehaviour
         {
             case EGameState.Main:
                 controller.addBaseUI();
+                Transform boardTransform = controller.completeLineTracer();
+                handleGameBoardDisplay(boardTransform);
                 
                 break;
             case EGameState.Settings:
                 controller.addSettingsUI();
+                controller.addLineTracer();
+                handleGameBoardDisplay(null);
                 
                 break;
             case EGameState.Play:
                 break;
             case EGameState.Paused:
                 break;
+        }
+    }
+
+    private void handleGameBoardDisplay(Transform boardTransform)
+    {
+        if (boardTransform != null)
+        {
+            gameBoard = Instantiate(Prefabs.GameBoardBase(), boardTransform.position, boardTransform.rotation);
+        }
+        else
+        {
+            if (gameBoard != null)
+            {
+                Destroy(gameBoard);
+            }
         }
     }
     

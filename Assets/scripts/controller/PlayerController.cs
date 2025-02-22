@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject settingsUICanvas;
 
     private GameObject currentUICanvas;
+    private LineTracer tracer;
     
     void Start()
     {
@@ -41,6 +42,28 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("Settings UI Canvas not assigned.");
         }
+    }
+    
+    public void addLineTracer()
+    {
+        tracer = gameObject.AddComponent<LineTracer>();
+        // tracer.onTransformOrNull += (transform) =>
+        // {
+        //     BoardManagerUI comp = settingsUICanvas.GetComponent<BoardManagerUI>();
+        //     comp.setCanConfirm(transform != null);
+        // };
+    }
+
+    public Transform completeLineTracer()
+    {
+        Transform tracerTransform = null;
+        if (tracer != null)
+        {
+            tracerTransform = tracer.getHitTransform();
+            Destroy(tracer);
+        }
+        
+        return tracerTransform;
     }
 
     private void addCanvases()

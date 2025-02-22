@@ -14,6 +14,15 @@ public class BoardManagerUI : MonoBehaviour
         confirmButton.onClick.AddListener(onConfirm);
     }
 
+    public void setCanConfirm(bool canConfirm)
+    {
+        // TODO: can't access UI button to show / hide
+        if (confirmButton != null)
+        {
+            confirmButton.gameObject.SetActive(canConfirm);
+        }
+    }
+
     private void onConfirm()
     {
         GameInstance
