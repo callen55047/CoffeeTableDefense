@@ -41,14 +41,11 @@ public class GameInstance : MonoBehaviour
                 break;
             case EGameState.Main:
                 playerController.addBaseUI();
-                playerController.completeLineTracer();
                 handleGameBoardDisplay();
                 
                 break;
             case EGameState.Settings:
                 playerController.addSettingsUI();
-                // potentially call ARSession reset here
-                playerController.addLineTracer();
                 handleGameBoardDisplay();
                 
                 break;

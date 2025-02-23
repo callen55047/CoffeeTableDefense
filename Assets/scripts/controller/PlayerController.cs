@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     public GameObject settingsUICanvas;
 
     private GameObject currentUICanvas;
-    private LineTracer tracer;
     
     void Start()
     {
@@ -18,65 +17,18 @@ public class PlayerController : MonoBehaviour
     {
         removeCurrentUI();
         
-        if (baseUICanvas != null)
-        {
-            currentUICanvas = Instantiate(baseUICanvas, transform);
-            currentUICanvas.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Base UI Canvas not assigned.");
-        }
+        currentUICanvas = Instantiate(baseUICanvas, transform);
+        currentUICanvas.SetActive(true);
     }
 
+    // have this function control adding the line tracer and updating the global value
+    // then once complete, change the game state back to MAIN
     public void addSettingsUI()
     {
         removeCurrentUI();
         
-        if (settingsUICanvas != null)
-        {
-            currentUICanvas = Instantiate(settingsUICanvas, transform);
-            currentUICanvas.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Settings UI Canvas not assigned.");
-        }
-    }
-    
-    public void addLineTracer()
-    {
-        tracer = gameObject.AddComponent<LineTracer>();
-        // TODO: connect UI rotation and height sliders
-        // tracer.onTransformOrNull += (transform) =>
-        // {
-        //     BoardManagerUI comp = settingsUICanvas.GetComponent<BoardManagerUI>();
-        //     comp.setCanConfirm(transform != null);
-        // };
-    }
-
-    public void completeLineTracer()
-    {
-        if (tracer != null)
-        {
-            GlobalValues.boardTransform = tracer.getHitTransform();
-            Destroy(tracer);
-        }
-    }
-
-    private void addCanvases()
-    {
-        if (baseUICanvas != null)
-        {
-            currentUICanvas = Instantiate(baseUICanvas, transform);
-            currentUICanvas.SetActive(false);
-        }
-        
-        if (settingsUICanvas != null)
-        {
-            currentUICanvas = Instantiate(settingsUICanvas, transform);
-            currentUICanvas.SetActive(false);
-        }
+        currentUICanvas = Instantiate(settingsUICanvas, transform);
+        currentUICanvas.SetActive(true);
     }
 
     private void removeCurrentUI()

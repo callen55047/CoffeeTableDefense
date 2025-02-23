@@ -8,9 +8,6 @@ public delegate void TransformUpdate(Transform spawnedTransform);
 // create wrapper classes that implement this and provide the spawnPrefab
 public class LineTracer : MonoBehaviour
 {
-    [Header("Line Settings")]
-    public float lineLength = 1f;
-    
     public event TransformUpdate onTransformOrNull;
     
     private GameObject spawnPrefab;
@@ -19,17 +16,26 @@ public class LineTracer : MonoBehaviour
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private GameObject spawnedObject;
     private int playerLayer;
+    private float lineLength = 1f;
+    private float rotationOffset = 0f;
 
-    void Start()
+    public void setup(GameObject prefab)
     {
-        spawnPrefab = Prefabs.BoardPlane();
+        spawnPrefab = prefab;
         arRaycastManager = FindFirstObjectByType<ARRaycastManager>();
         ConfigureLineRenderer();
         playerLayer = gameObject.layer; // Set the player layer to ignore during raycasts
     }
 
+    public void addModifiers(float rotation)
+    {
+        this.rotationOffset = rotation;
+    }
+
     void FixedUpdate()
     {
+        if (spawnPrefab == null) { return; }
+        
         Vector3 startPosition = transform.position;
         Vector3 endPosition = startPosition + transform.forward * lineLength;
 
@@ -84,13 +90,25 @@ public class LineTracer : MonoBehaviour
 
     private void spawnOrUpdateObject(Pose hitPose)
     {
+        // Apply rotation offset if Offset and rotation have values
+        Quaternion finalRotation = hitPose.rotation * Quaternion.Euler(0f, rotationOffset, 0f);
+        Vector3 finalPosition = hitPose.position;
+        
+        Debug.Log("final rotation: {finalRotation}, final position: {finalPosition}");
+        
+        // Apply height offset if Offset and height have values
+        // if (Offset?.height.HasValue == true)
+        // {
+        //     finalPosition += new Vector3(0f, Offset.height.Value, 0f);
+        // }
+
         if (spawnedObject == null && spawnPrefab != null)
         {
-            spawnedObject = Instantiate(spawnPrefab, hitPose.position, hitPose.rotation);
+            spawnedObject = Instantiate(spawnPrefab, finalPosition, finalRotation);
         }
         else if (spawnedObject != null)
         {
-            spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+            spawnedObject.transform.SetPositionAndRotation(finalPosition, finalRotation);
         }
         
         NotifyListeners();
