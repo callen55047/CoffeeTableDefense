@@ -41,6 +41,7 @@ namespace Enemies
             if (checkpoints == null || currentCheckpoint >= checkpoints.Length)
                 return; // No checkpoints or path complete
 
+            // TODO: when falling off map, this is throwing an error ??
             Vector3 targetPosition = checkpoints[currentCheckpoint].position;
             Vector3 direction = (targetPosition - transform.position).normalized;
 

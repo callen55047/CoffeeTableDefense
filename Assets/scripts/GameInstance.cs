@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum EGameState
 {
+    Init,
     Main,
     Settings, 
     Play,
@@ -10,18 +11,14 @@ public enum EGameState
 
 public class GameInstance : MonoBehaviour
 {
-    [Header("Game Maps")]
-    public GameObject map1;
-    
-    private GameObject player;
-    private PlayerController controller;
-    private EGameState gameState = EGameState.Main;
+    private PlayerController playerController;
+    private EGameState gameState = EGameState.Init;
     private Transform boardTransform;
     private GameObject gameBoard;
 
     void Start()
     {
-        (player, controller) = PlayerController.fromScene();
+        playerController = PlayerController.fromScene();
 
         handleCurrentState();
     }
@@ -36,16 +33,23 @@ public class GameInstance : MonoBehaviour
     {
         switch (gameState)
         {
+            case EGameState.Init:
+                preloadAssets();
+                // add initial black screen for player
+                // request access to camera for devices
+                changeState(EGameState.Main);
+
+                break;
             case EGameState.Main:
-                controller.addBaseUI();
-                boardTransform = controller.completeLineTracer();
+                playerController.addBaseUI();
+                boardTransform = playerController.completeLineTracer();
                 handleGameBoardDisplay();
                 
                 break;
             case EGameState.Settings:
-                controller.addSettingsUI();
+                playerController.addSettingsUI();
                 // potentially call ARSession reset here
-                controller.addLineTracer();
+                playerController.addLineTracer();
                 handleGameBoardDisplay();
                 
                 break;
@@ -58,11 +62,15 @@ public class GameInstance : MonoBehaviour
 
     private void handleGameBoardDisplay()
     {
+        // pause game and hide the current board if applicable
+        // add separate render for the board position object
         if (boardTransform != null)
         {
-            Vector3 worldSize = boardTransform.lossyScale;
-            Debug.Log($"our world size if set to: x: {worldSize.x}, y: {worldSize.y}, z: {worldSize.z}");
-            gameBoard = Instantiate(map1, boardTransform.position, boardTransform.rotation);
+            gameBoard = Instantiate(
+                Prefabs.Gameboards.first(),
+                boardTransform.position,
+                boardTransform.rotation
+                );
         }
         else
         {
@@ -71,6 +79,11 @@ public class GameInstance : MonoBehaviour
                 Destroy(gameBoard);
             }
         }
+    }
+
+    private void preloadAssets()
+    {
+        // load all prefabs into memory
     }
     
     public static GameInstance fromScene() {

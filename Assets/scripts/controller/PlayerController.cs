@@ -97,14 +97,14 @@ public class PlayerController : MonoBehaviour
         
     }
     
-    public static (GameObject player, PlayerController controller) fromScene() {
+    public static PlayerController fromScene() {
         GameObject player = GameObject.Find("PlayerGO"); // GO = Game Object
         
         if (player != null) {
             PlayerController controller = player.GetComponent<PlayerController>();
             
             if (controller != null) {
-                return (player, controller);
+                return controller;
             } else {
                 throw new System.Exception("playerController script NOT FOUND!!!");
             }

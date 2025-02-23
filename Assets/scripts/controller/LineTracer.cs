@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public delegate void TransformUpdate(Transform spawnedTransform);
 
+// create wrapper classes that implement this and provide the spawnPrefab
 public class LineTracer : MonoBehaviour
 {
     [Header("Line Settings")]
