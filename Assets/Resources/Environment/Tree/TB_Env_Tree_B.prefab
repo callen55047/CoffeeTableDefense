@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4161962275410800}
   - component: {fileID: 33937462326192484}
   - component: {fileID: 23007404895981972}
+  - component: {fileID: 2058669666144504007}
   m_Layer: 0
   m_Name: TB_Env_Tree_B
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.002941176, y: 0.002941176, z: 0.002941176}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,3 +87,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2058669666144504007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827331461494668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb8ddfa10f274752beae5ff53e5ffb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
