@@ -30,8 +30,10 @@ namespace Enemies
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
             if (healthBar != null)
+            {
                 healthBar.value = currentHealth;
-
+                Debug.Log(gameObject.name + " slider value updated to: " + healthBar.value);
+            }
             Debug.Log(gameObject.name + " health after damage: " + currentHealth);
 
             if (currentHealth <= 0)
