@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 4950992620309586}
   - component: {fileID: 33148900250638496}
   - component: {fileID: 23402300862562940}
-  - component: {fileID: -9006688809451665111}
-  - component: {fileID: 8014061282052789879}
-  - component: {fileID: 3166275090503052241}
   m_Layer: 0
   m_Name: TB_ArcherTower_Lvl1
   m_TagString: Untagged
@@ -31,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.002941176, y: 0.002941176, z: 0.002941176}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,53 +86,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-9006688809451665111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376233406905130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a2285159b3a416b85ce8af638bf619, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 1734245126228380, guid: c246c13351c285146b91ea26d3e4cda7,
-    type: 3}
-  arrowSpawnPoint: {fileID: 4102569786528102, guid: c246c13351c285146b91ea26d3e4cda7,
-    type: 3}
-  attackCooldown: 1.5
---- !u!135 &8014061282052789879
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376233406905130}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3.3782494
-  m_Center: {x: -0.00000047683716, y: 2.6419573, z: -0.13579655}
---- !u!114 &3166275090503052241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376233406905130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fb8ddfa10f274752beae5ff53e5ffb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

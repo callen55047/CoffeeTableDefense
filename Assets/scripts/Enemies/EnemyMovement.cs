@@ -44,20 +44,25 @@ namespace Enemies
             Vector3 targetPosition = checkpoints[currentCheckpoint].position;
             Vector3 direction = (targetPosition - transform.position).normalized;
 
-            // Move enemy
+            // Move enemy using MovePosition.
             Vector3 newPosition = Vector3.MoveTowards(rb.position, targetPosition, moveForce * Time.fixedDeltaTime);
             rb.MovePosition(newPosition);
 
-            // Rotate enemy to face the target direction
+            // Calculate desired rotation with no X or Z rotation (only Y changes)
             if (direction != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up) * Quaternion.Euler(0, 180, 0);
+                // Zero out x and z in the Euler angles.
+                Vector3 targetEuler = targetRotation.eulerAngles;
+                targetEuler.x = 0;
+                targetEuler.z = 0;
+                targetRotation = Quaternion.Euler(targetEuler);
+        
+                // Smoothly rotate using Slerp or RotateTowards.
                 rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime));
+                // Alternatively, you can try:
+                // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
             }
-
-            // Ensure the enemy stays upright:
-            Quaternion currentRotation = transform.rotation;
-            transform.rotation = Quaternion.Euler(0, currentRotation.eulerAngles.y, 0);
 
             if (Vector3.Distance(newPosition, targetPosition) < stopDistance)
             {

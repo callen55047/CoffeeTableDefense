@@ -11,6 +11,8 @@ TagManager:
   - initArrow
   - PlayerGO
   - ArcherTower
+  - CannonTower
+  - MageTower
   layers:
   - Default
   - TransparentFX
