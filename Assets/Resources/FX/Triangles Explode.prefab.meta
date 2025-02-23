@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9790383d97594f049aecba8cf470e3b7
+guid: 924e772d99fea934f8c7dff7c622e78a
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 244171
   packageName: 'Simple Particles FX : Toon Effects'
   packageVersion: 1.0.1
-  assetPath: Assets/Simple FX Kit/Prefabs/Squares Explode.prefab
+  assetPath: Assets/Resources/FX/Triangles Explode.prefab
   uploadId: 623505

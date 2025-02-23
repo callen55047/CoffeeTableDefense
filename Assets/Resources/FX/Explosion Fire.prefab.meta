@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a334e7c388e77347a1dddd727ef3446
+guid: 7800b8f6b712bfe49bd663eeb3ebe1e4
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 244171
   packageName: 'Simple Particles FX : Toon Effects'
   packageVersion: 1.0.1
-  assetPath: Assets/Simple FX Kit/Prefabs/Smoke.prefab
+  assetPath: Assets/Resources/FX/Explosion Fire.prefab
   uploadId: 623505

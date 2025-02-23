@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f9e7dc163581394da1e00b561eed65d
+guid: 61753401622c2a947a30e2147430e97d
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 244171
   packageName: 'Simple Particles FX : Toon Effects'
   packageVersion: 1.0.1
-  assetPath: Assets/Simple FX Kit/Prefabs/Blood Splash.prefab
+  assetPath: Assets/Resources/FX/Spheres Explode.prefab
   uploadId: 623505

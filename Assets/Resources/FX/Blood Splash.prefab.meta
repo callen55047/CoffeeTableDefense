@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e187e22a11f364409b0a3f4d03c36a8
+guid: 2f9e7dc163581394da1e00b561eed65d
 PrefabImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 244171
   packageName: 'Simple Particles FX : Toon Effects'
   packageVersion: 1.0.1
-  assetPath: Assets/Simple FX Kit/Prefabs/Water Splash Continous.prefab
+  assetPath: Assets/Resources/FX/Blood Splash.prefab
   uploadId: 623505
