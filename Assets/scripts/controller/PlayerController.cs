@@ -55,16 +55,13 @@ public class PlayerController : MonoBehaviour
         // };
     }
 
-    public Transform completeLineTracer()
+    public void completeLineTracer()
     {
-        Transform tracerTransform = null;
         if (tracer != null)
         {
-            tracerTransform = tracer.getHitTransform();
+            GlobalValues.boardTransform = tracer.getHitTransform();
             Destroy(tracer);
         }
-        
-        return tracerTransform;
     }
 
     private void addCanvases()

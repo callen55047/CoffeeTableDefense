@@ -13,7 +13,6 @@ public class GameInstance : MonoBehaviour
 {
     private PlayerController playerController;
     private EGameState gameState = EGameState.Init;
-    private Transform boardTransform;
     private GameObject gameBoard;
 
     void Start()
@@ -42,7 +41,7 @@ public class GameInstance : MonoBehaviour
                 break;
             case EGameState.Main:
                 playerController.addBaseUI();
-                boardTransform = playerController.completeLineTracer();
+                playerController.completeLineTracer();
                 handleGameBoardDisplay();
                 
                 break;
@@ -64,12 +63,12 @@ public class GameInstance : MonoBehaviour
     {
         // pause game and hide the current board if applicable
         // add separate render for the board position object
-        if (boardTransform != null)
+        if (GlobalValues.boardTransform != null)
         {
             gameBoard = Instantiate(
                 Prefabs.Gameboards.first(),
-                boardTransform.position,
-                boardTransform.rotation
+                GlobalValues.boardTransform.position,
+                GlobalValues.boardTransform.rotation
                 );
         }
         else
