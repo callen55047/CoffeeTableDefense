@@ -10,9 +10,13 @@ public enum EGameState
 
 public class GameInstance : MonoBehaviour
 {
+    [Header("Game Maps")]
+    public GameObject map1;
+    
     private GameObject player;
     private PlayerController controller;
     private EGameState gameState = EGameState.Main;
+    private Transform boardTransform;
     private GameObject gameBoard;
 
     void Start()
@@ -34,14 +38,15 @@ public class GameInstance : MonoBehaviour
         {
             case EGameState.Main:
                 controller.addBaseUI();
-                Transform boardTransform = controller.completeLineTracer();
-                handleGameBoardDisplay(boardTransform);
+                boardTransform = controller.completeLineTracer();
+                handleGameBoardDisplay();
                 
                 break;
             case EGameState.Settings:
                 controller.addSettingsUI();
+                // potentially call ARSession reset here
                 controller.addLineTracer();
-                handleGameBoardDisplay(null);
+                handleGameBoardDisplay();
                 
                 break;
             case EGameState.Play:
@@ -51,11 +56,13 @@ public class GameInstance : MonoBehaviour
         }
     }
 
-    private void handleGameBoardDisplay(Transform boardTransform)
+    private void handleGameBoardDisplay()
     {
         if (boardTransform != null)
         {
-            gameBoard = Instantiate(Prefabs.GameBoardBase(), boardTransform.position, boardTransform.rotation);
+            Vector3 worldSize = boardTransform.lossyScale;
+            Debug.Log($"our world size if set to: x: {worldSize.x}, y: {worldSize.y}, z: {worldSize.z}");
+            gameBoard = Instantiate(map1, boardTransform.position, boardTransform.rotation);
         }
         else
         {
