@@ -4,7 +4,7 @@ public class Prefabs
 {
     public static GameObject BoardPlane()
     {
-        GameObject prefab = Resources.Load<GameObject>("BoardPlane");
+        GameObject prefab = Resources.Load<GameObject>("settings/BoardPlane");
         if (prefab == null)
             Debug.LogWarning("Failed to load prefab. Ensure it's inside a 'Resources' folder.");
         
@@ -14,5 +14,13 @@ public class Prefabs
     public static GameObject GameBoardBase()
     {
         return Resources.Load<GameObject>("GameBoardBase");
+    }
+
+    public static class Gameboards
+    {
+        public static GameObject first()
+        {
+            return Resources.Load<GameObject>("boards/BoardBase1");
+        }
     }
 }
