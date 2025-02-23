@@ -13,6 +13,9 @@ namespace Castle
 
         public Color fullColor = Color.green;
         public Color zeroColor = Color.red;
+        
+        public GameObject explosionPrefab;  // Assign your Explosion Fire prefab here.
+        public Vector3 explosionScale = new Vector3(0.1f, 0.1f, 0.1f);  // Desired scale for the explosion FX.
 
         void Start()
         {
@@ -55,6 +58,19 @@ namespace Castle
         private void Die()
         {
             Debug.Log("Castle Destroyed!");
+            
+            // Instantiate the explosion effect at the castle's position.
+            if (explosionPrefab != null)
+            {
+                GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                explosion.transform.localScale = explosionScale;  // Scale it down as desired.
+                Debug.Log("Explosion effect instantiated with scale: " + explosionScale);
+            }
+            else
+            {
+                Debug.LogWarning("No explosionPrefab assigned in CastleHealth!");
+            }
+            
             // Disable all MeshRenderers in the castle and its children
             MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
             foreach (MeshRenderer r in renderers)
