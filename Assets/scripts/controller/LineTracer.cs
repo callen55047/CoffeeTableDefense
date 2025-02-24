@@ -17,7 +17,7 @@ public class LineTracer : MonoBehaviour
     private GameObject spawnedObject;
     private int playerLayer;
     private float lineLength = 1f;
-    private float rotationOffset = 0f;
+    private OffsetData offsets = new OffsetData();
 
     public void setup(GameObject prefab)
     {
@@ -27,9 +27,9 @@ public class LineTracer : MonoBehaviour
         playerLayer = gameObject.layer; // Set the player layer to ignore during raycasts
     }
 
-    public void addModifiers(float rotation)
+    public void addModifiers(OffsetData offsets)
     {
-        this.rotationOffset = rotation;
+        this.offsets = offsets;
     }
 
     void FixedUpdate()
@@ -90,17 +90,8 @@ public class LineTracer : MonoBehaviour
 
     private void spawnOrUpdateObject(Pose hitPose)
     {
-        // Apply rotation offset if Offset and rotation have values
-        Quaternion finalRotation = hitPose.rotation * Quaternion.Euler(0f, rotationOffset, 0f);
-        Vector3 finalPosition = hitPose.position;
-        
-        Debug.Log("final rotation: {finalRotation}, final position: {finalPosition}");
-        
-        // Apply height offset if Offset and height have values
-        // if (Offset?.height.HasValue == true)
-        // {
-        //     finalPosition += new Vector3(0f, Offset.height.Value, 0f);
-        // }
+        Quaternion finalRotation = hitPose.rotation * Quaternion.Euler(0f, offsets.rotation, 0f);
+        Vector3 finalPosition = hitPose.position + (Vector3.up * offsets.height);
 
         if (spawnedObject == null && spawnPrefab != null)
         {
@@ -110,6 +101,15 @@ public class LineTracer : MonoBehaviour
         {
             spawnedObject.transform.SetPositionAndRotation(finalPosition, finalRotation);
         }
+
+        // TODO: scale is so small, it defaults to zero when modified...
+        // if (offsets.scale != 0f)
+        // {
+        //     spawnedObject.transform.localScale.x *= offsets.scale;
+        //     spawnedObject.transform.localScale.z *= offsets.scale;
+        // }
+        //
+        // Debug.Log("object scale: " + spawnedObject.transform.localScale);
         
         NotifyListeners();
     }

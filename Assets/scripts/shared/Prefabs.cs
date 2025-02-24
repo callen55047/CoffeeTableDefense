@@ -11,9 +11,12 @@ public class Prefabs
         return prefab;
     }
     
-    public static GameObject GameBoardBase()
+    public static class World
     {
-        return Resources.Load<GameObject>("GameBoardBase");
+        public static GameObject gameboardOutline()
+        {
+            return Resources.Load<GameObject>("world/GameBoardOutline");
+        }
     }
 
     public static class Gameboards

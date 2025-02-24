@@ -9,6 +9,7 @@ public class BoardManagerUI : MonoBehaviour
     private Button confirmButton;
     
     private LineTracer tracer;
+    private OffsetData offsets = new OffsetData();
     
     void Start()
     {
@@ -16,6 +17,10 @@ public class BoardManagerUI : MonoBehaviour
         confirmButton.onClick.AddListener(onConfirm);
         rotationSlider = ChildFinder.getComponent<Slider>(transform, "RotationSlider");
         rotationSlider.onValueChanged.AddListener(onRotationSliderChanged);
+        heightSlider = ChildFinder.getComponent<Slider>(transform, "HeightSlider");
+        heightSlider.onValueChanged.AddListener(onHeightSliderChanged);
+        scaleSlider = ChildFinder.getComponent<Slider>(transform, "ScaleSlider");
+        scaleSlider.onValueChanged.AddListener(onScaleSliderChanged);
         
         setupLineTrace();
     }
@@ -31,20 +36,27 @@ public class BoardManagerUI : MonoBehaviour
 
     private void setupLineTrace()
     {
-        // add to player game object
-        tracer = PlayerController.fromScene().gameObject.AddComponent<LineTracer>();
+        tracer = gameObject.GetComponentInParent<PlayerController>().createLineTracer();
         tracer.setup(Prefabs.BoardPlane());
-        // TODO: connect UI rotation and height sliders
-        // tracer.onTransformOrNull += (transform) =>
-        // {
-        //     BoardManagerUI comp = settingsUICanvas.GetComponent<BoardManagerUI>();
-        //     comp.setCanConfirm(transform != null);
-        // };
     }
 
     private void onRotationSliderChanged(float value)
     {
-        tracer.addModifiers(value);
+        offsets.rotation = value;
+        tracer.addModifiers(offsets);
+    }
+    
+    private void onHeightSliderChanged(float value)
+    {
+        offsets.height = value;
+        tracer.addModifiers(offsets);
+    }
+    
+    private void onScaleSliderChanged(float value)
+    {
+        Debug.Log("scale changed: " + value);
+        offsets.scale = value;
+        tracer.addModifiers(offsets);
     }
 
     private void onConfirm()

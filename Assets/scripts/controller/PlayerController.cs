@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
         currentUICanvas.SetActive(true);
     }
 
+    public LineTracer createLineTracer()
+    {
+        return gameObject.AddComponent<LineTracer>();
+    }
+
     private void removeCurrentUI()
     {
         if (currentUICanvas != null)

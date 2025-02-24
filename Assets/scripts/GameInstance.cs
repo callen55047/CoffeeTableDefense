@@ -9,6 +9,8 @@ public enum EGameState
     Paused  
 }
 
+// TODO: create game mode and game state classes
+// activate once we have a game board object on the map
 public class GameInstance : MonoBehaviour
 {
     private PlayerController playerController;
@@ -36,7 +38,7 @@ public class GameInstance : MonoBehaviour
                 preloadAssets();
                 // add initial black screen for player
                 // request access to camera for devices
-                changeState(EGameState.Main);
+                changeState(EGameState.Settings);
 
                 break;
             case EGameState.Main:
@@ -63,7 +65,7 @@ public class GameInstance : MonoBehaviour
         if (GlobalValues.boardTransform != null)
         {
             gameBoard = Instantiate(
-                Prefabs.Gameboards.first(),
+                Prefabs.World.gameboardOutline(),
                 GlobalValues.boardTransform.position,
                 GlobalValues.boardTransform.rotation
                 );
