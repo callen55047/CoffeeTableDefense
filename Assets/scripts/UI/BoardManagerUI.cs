@@ -37,7 +37,7 @@ public class BoardManagerUI : MonoBehaviour
     private void setupLineTrace()
     {
         tracer = gameObject.GetComponentInParent<PlayerController>().createLineTracer();
-        tracer.setup(Prefabs.BoardPlane());
+        tracer.setup(Prefabs.Settings.BoardPlaceHolder());
     }
 
     private void onRotationSliderChanged(float value)

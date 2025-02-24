@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class Prefabs
 {
-    public static GameObject BoardPlane()
+    public static class Settings
     {
-        GameObject prefab = Resources.Load<GameObject>("settings/BoardPlane");
-        if (prefab == null)
-            Debug.LogWarning("Failed to load prefab. Ensure it's inside a 'Resources' folder.");
-        
-        return prefab;
+        public static GameObject BoardPlaceHolder()
+        {
+            return Resources.Load<GameObject>("settings/BoardPlaceHolder");
+        }
     }
     
     public static class World

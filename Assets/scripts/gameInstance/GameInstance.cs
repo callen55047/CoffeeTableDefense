@@ -4,9 +4,7 @@ public enum EGameState
 {
     Init,
     Main,
-    Settings, 
-    Play,
-    Paused  
+    Settings
 }
 
 // TODO: create game mode and game state classes
@@ -14,12 +12,13 @@ public enum EGameState
 public class GameInstance : MonoBehaviour
 {
     private PlayerController playerController;
+    private GameBoardManager gameBoardManager;
     private EGameState gameState = EGameState.Init;
-    private GameObject gameBoard;
 
     void Start()
     {
         playerController = PlayerController.fromScene();
+        gameBoardManager = gameObject.GetComponent<GameBoardManager>();
 
         handleCurrentState();
     }
@@ -43,39 +42,14 @@ public class GameInstance : MonoBehaviour
                 break;
             case EGameState.Main:
                 playerController.addBaseUI();
-                handleGameBoardDisplay();
+                gameBoardManager.onMainGameState();
                 
                 break;
             case EGameState.Settings:
                 playerController.addSettingsUI();
-                handleGameBoardDisplay();
+                gameBoardManager.onSettingsGameState();
                 
                 break;
-            case EGameState.Play:
-                break;
-            case EGameState.Paused:
-                break;
-        }
-    }
-
-    private void handleGameBoardDisplay()
-    {
-        // pause game and hide the current board if applicable
-        // add separate render for the board position object
-        if (GlobalValues.boardTransform != null)
-        {
-            gameBoard = Instantiate(
-                Prefabs.World.gameboardOutline(),
-                GlobalValues.boardTransform.position,
-                GlobalValues.boardTransform.rotation
-                );
-        }
-        else
-        {
-            if (gameBoard != null)
-            {
-                Destroy(gameBoard);
-            }
         }
     }
 
