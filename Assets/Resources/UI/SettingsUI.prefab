@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 2755433743851057010}
   - component: {fileID: -5553135385660845700}
   m_Layer: 5
-  m_Name: BoardManagerUI
+  m_Name: SettingsUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("User Interface")]
-    public GameObject baseUICanvas;
+    public GameObject mainMenuUICanvas;
     public GameObject settingsUICanvas;
 
     private GameObject currentUICanvas;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         removeCurrentUI();
         
-        currentUICanvas = Instantiate(baseUICanvas, transform);
+        currentUICanvas = Instantiate(mainMenuUICanvas, transform);
         currentUICanvas.SetActive(true);
     }
 

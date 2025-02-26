@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a5eb8c945f24fb6b29b63cb0dd5e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoPlaceBoard: 1
 --- !u!4 &62844210
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40f52453b1b240448661b2924aff698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels:
+  - Name: Castle Defense
+    DifficultyLevel: 1
+    LevelObject: {fileID: 921627409944660554, guid: a6c743e14f7e54513a602d7d7bdbe3fa,
+      type: 3}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad981d112224430d976564885c4c3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseUICanvas: {fileID: 2957156589263976905, guid: 6c36f2491751b4eee8af54440216cf6f,
+  mainMenuUICanvas: {fileID: 2957156589263976905, guid: 6c36f2491751b4eee8af54440216cf6f,
     type: 3}
   settingsUICanvas: {fileID: 3799164382950241090, guid: d660bf1a3e64b42738c17b0f9ee8b350,
     type: 3}

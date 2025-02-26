@@ -1,18 +1,24 @@
 using UnityEngine;
+using System;
 
 public enum EGameBoardState
 {
     NotCreated,
     Empty,
     Ready,
-    Play,
-    Paused  
+    Play
 }
 
 public class GameBoardManager : MonoBehaviour
 {
+    [Header("Game Maps")] 
+    public LevelData[] levels;
+    
     private EGameBoardState gameBoardState = EGameBoardState.NotCreated;
-    private GameObject gameBoard;
+    private GameObject gameBoardBase;
+    private LevelData selectedLevel;
+    
+    public bool isPaused = false;
     
     public void onMainGameState()
     {
@@ -24,54 +30,103 @@ public class GameBoardManager : MonoBehaviour
         }
 
         // have we created the board yet?
-        if (gameBoard == null)
+        if (gameBoardBase == null)
         {
-            gameBoard = Instantiate(
+            gameBoardBase = Instantiate(
                 Prefabs.World.gameboardOutline(),
                 GlobalValues.boardTransform.position,
                 GlobalValues.boardTransform.rotation
             );
-            // handle asset animation of popping up
             gameBoardState = EGameBoardState.Empty;
+            
+            // handle asset animation of popping up
+            // animation will callback to this function
+            onBaseInitialized();
+            
             return;
         }
         
         // update board location
-        gameBoard.transform.SetPositionAndRotation(
+        gameBoardBase.transform.SetPositionAndRotation(
             GlobalValues.boardTransform.position, 
             GlobalValues.boardTransform.rotation
         );
         
         toggleVisibility(true);
-        gameBoardState = EGameBoardState.Ready;
+        resume();
+        handlePlayState();
     }
 
+    public void onBaseInitialized()
+    {
+        if (levels.Length > 0)
+        {
+            spawnNewLevel(0);
+            gameBoardState = EGameBoardState.Ready;
+        }
+    }
+
+    public void spawnNewLevel(int index)
+    {
+        if (selectedLevel != null)
+        {
+            Destroy(selectedLevel.LevelObject);
+        }
+        
+        selectedLevel = levels[index];
+        GameObject levelSpawn = Instantiate(selectedLevel.LevelObject, gameBoardBase.transform);
+    }
     
+    public (int levelsLength, int selectedIndex) GetLevelsInfo()
+    {
+        int levelsLength = levels.Length;
+        int selectedIndex = Array.IndexOf(levels, selectedLevel);  // Returns -1 if not found
+        return (levelsLength, selectedIndex);
+    }
+
+    public void confirmPlayLevel()
+    {
+        // spawn new game mode instance and begin playing
+    }
 
     public void onSettingsGameState()
     {
-        // ensure game is paused
+        pause();
         toggleVisibility(false);
     }
     
     public void resume()
     {
-        
+        // this affects player controller movement
+        // Time.timeScale = 1;
+        isPaused = false;
     }
 
     public void pause()
     {
-        
+        isPaused = true;
+    }
+
+    public bool isPlaying()
+    {
+        return gameBoardState == EGameBoardState.Play;
+    }
+
+    private void handlePlayState()
+    {
+        if (selectedLevel == null)
+        {
+            gameBoardState = EGameBoardState.Ready;
+        }
+        else
+        {
+            gameBoardState = EGameBoardState.Play;
+        }
     }
     
     private void toggleVisibility(bool visible)
     {
-        gameBoard?.SetActive(visible);
-    }
-    
-    void Update()
-    {
-        
+        gameBoardBase?.SetActive(visible);
     }
     
     public static GameBoardManager fromScene() {

@@ -128,6 +128,10 @@ $RECYCLE.BIN/
 # Environment files
 .env
 .env.*
+Assets/XR/Resources/XRSimulationRuntimeSettings.asset.meta
+Assets/XR/Resources/XRSimulationRuntimeSettings.asset
+Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset
+Assets/XR/UserSimulationSettings/Resources/XRSimulationPreferences.asset.meta
 
 # Logs
 *.log

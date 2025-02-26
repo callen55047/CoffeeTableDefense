@@ -11,6 +11,9 @@ public enum EGameState
 // activate once we have a game board object on the map
 public class GameInstance : MonoBehaviour
 {
+    [Header("Editor Debug")] 
+    public bool AutoPlaceBoard = true;
+        
     private PlayerController playerController;
     private GameBoardManager gameBoardManager;
     private EGameState gameState = EGameState.Init;
@@ -35,6 +38,15 @@ public class GameInstance : MonoBehaviour
         {
             case EGameState.Init:
                 preloadAssets();
+                
+                #if UNITY_EDITOR
+                    if (AutoPlaceBoard) {
+                        createZeroBoardTransform();
+                        changeState(EGameState.Main);
+                        return;
+                    }
+                #endif
+                
                 // add initial black screen for player
                 // request access to camera for devices
                 changeState(EGameState.Settings);
@@ -51,6 +63,18 @@ public class GameInstance : MonoBehaviour
                 
                 break;
         }
+    }
+
+    private void createZeroBoardTransform()
+    {
+        GameObject newObject = new GameObject("ZeroTransformObject");
+        Transform zeroTransform = newObject.transform;
+        
+        zeroTransform.position = Vector3.zero;
+        zeroTransform.rotation = Quaternion.identity;
+        zeroTransform.localScale = Vector3.zero;
+
+        GlobalValues.boardTransform = zeroTransform;
     }
 
     private void preloadAssets()
