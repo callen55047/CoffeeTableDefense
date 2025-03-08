@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a5eb8c945f24fb6b29b63cb0dd5e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoPlaceBoard: 0
+  AutoPlaceBoard: 1
 --- !u!4 &62844210
 Transform:
   m_ObjectHideFlags: 0

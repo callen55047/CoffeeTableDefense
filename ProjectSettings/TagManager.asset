@@ -15,6 +15,7 @@ TagManager:
   - MageTower
   - Locations
   - ValidPlacement
+  - GameBoard
   layers:
   - Default
   - TransparentFX
