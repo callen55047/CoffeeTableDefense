@@ -100,16 +100,19 @@ public class LineTracer : MonoBehaviour
         else if (spawnedObject != null)
         {
             spawnedObject.transform.SetPositionAndRotation(finalPosition, finalRotation);
+
+			// TODO: scale is so small, it defaults to zero when modified...
+        	if (offsets.scale != 0f)
+        	{
+				Vector3 newScale = GlobalValues.MapScaleVector * offsets.scale;
+				Debug.Log("newScale: " + newScale.x);
+             	spawnedObject.transform.localScale = newScale;
+         	}
+        
+         	Debug.Log("object scale: " + spawnedObject.transform.localScale);
         }
 
-        // TODO: scale is so small, it defaults to zero when modified...
-        // if (offsets.scale != 0f)
-        // {
-        //     spawnedObject.transform.localScale.x *= offsets.scale;
-        //     spawnedObject.transform.localScale.z *= offsets.scale;
-        // }
-        //
-        // Debug.Log("object scale: " + spawnedObject.transform.localScale);
+        
         
         NotifyListeners();
     }

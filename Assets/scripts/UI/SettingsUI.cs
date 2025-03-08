@@ -54,7 +54,7 @@ public class BoardManagerUI : MonoBehaviour
     
     private void onScaleSliderChanged(float value)
     {
-        Debug.Log("scale changed: " + value);
+        // Debug.Log("scale changed: " + value);
         offsets.scale = value;
         tracer.addModifiers(offsets);
     }

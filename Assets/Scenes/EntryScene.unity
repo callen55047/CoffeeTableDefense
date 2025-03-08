@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a5eb8c945f24fb6b29b63cb0dd5e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AutoPlaceBoard: 1
+  AutoPlaceBoard: 0
 --- !u!4 &62844210
 Transform:
   m_ObjectHideFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
     DifficultyLevel: 1
     LevelObject: {fileID: 921627409944660554, guid: a6c743e14f7e54513a602d7d7bdbe3fa,
       type: 3}
+  isPaused: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

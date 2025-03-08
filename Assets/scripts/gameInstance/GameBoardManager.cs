@@ -17,6 +17,7 @@ public class GameBoardManager : MonoBehaviour
     private EGameBoardState gameBoardState = EGameBoardState.NotCreated;
     private GameObject gameBoardBase;
     private LevelData selectedLevel;
+	private GameObject currentLevel;
     
     public bool isPaused = false;
     
@@ -37,6 +38,7 @@ public class GameBoardManager : MonoBehaviour
                 GlobalValues.boardTransform.position,
                 GlobalValues.boardTransform.rotation
             );
+			gameBoardBase.transform.localScale = GlobalValues.boardTransform.localScale;
             gameBoardState = EGameBoardState.Empty;
             
             // handle asset animation of popping up
@@ -51,6 +53,7 @@ public class GameBoardManager : MonoBehaviour
             GlobalValues.boardTransform.position, 
             GlobalValues.boardTransform.rotation
         );
+		gameBoardBase.transform.localScale = GlobalValues.boardTransform.localScale;
         
         toggleVisibility(true);
         resume();
@@ -74,7 +77,14 @@ public class GameBoardManager : MonoBehaviour
         }
         
         selectedLevel = levels[index];
-        GameObject levelSpawn = Instantiate(selectedLevel.LevelObject, gameBoardBase.transform);
+        currentLevel = Instantiate(
+			selectedLevel.LevelObject, 
+			gameBoardBase.transform.position, 
+			gameBoardBase.transform.rotation
+		);
+		// debug scaling. 
+		//levelSpawn.transform.localScale = GlobalValues.boardTransform.localScale;
+		
     }
     
     public (int levelsLength, int selectedIndex) GetLevelsInfo()
@@ -87,6 +97,7 @@ public class GameBoardManager : MonoBehaviour
     public void confirmPlayLevel()
     {
         // spawn new game mode instance and begin playing
+		currentLevel.GetComponent<LevelManager>().Play();
     }
 
     public void onSettingsGameState()

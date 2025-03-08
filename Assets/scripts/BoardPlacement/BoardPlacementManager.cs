@@ -10,7 +10,8 @@ namespace BoardPlacement
         public ARRaycastManager arRaycastManager;
         public GameObject boardPreview; // The ghost board in the AR world
 
-        [Header("UI Controls")] public Slider heightSlider;
+        [Header("UI Controls")] 
+        public Slider heightSlider;
         public Slider scaleSlider;
         public Slider rotationSlider;
         public Button confirmButton;

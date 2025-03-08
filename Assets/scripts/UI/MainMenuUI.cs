@@ -35,7 +35,7 @@ public class BaseUI : MonoBehaviour
 
     void PlayButtonClick()
     {
-        manager.resume();
+        manager.confirmPlayLevel();
     }
 
     void RightButtonClick()
