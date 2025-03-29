@@ -35,7 +35,7 @@ public class BaseUI : MonoBehaviour
 
     void PlayButtonClick()
     {
-        manager.confirmPlayLevel();
+        // TODO: get current levelManager
     }
 
     void RightButtonClick()

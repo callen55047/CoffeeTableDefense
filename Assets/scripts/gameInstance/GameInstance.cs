@@ -31,6 +31,7 @@ public class GameInstance : MonoBehaviour
         gameState = newState;
         handleCurrentState();
     }
+    
 
     private void handleCurrentState()
     {

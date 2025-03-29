@@ -5,8 +5,8 @@ public enum EGameBoardState
 {
     NotCreated,
     Empty,
-    Ready,
-    Play
+    // TODO: add Animating state,
+    Ready
 }
 
 public class GameBoardManager : MonoBehaviour
@@ -18,8 +18,6 @@ public class GameBoardManager : MonoBehaviour
     private GameObject gameBoardBase;
     private LevelData selectedLevel;
 	private GameObject currentLevel;
-    
-    public bool isPaused = false;
     
     public void onMainGameState()
     {
@@ -55,9 +53,13 @@ public class GameBoardManager : MonoBehaviour
         );
 		gameBoardBase.transform.localScale = GlobalValues.boardTransform.localScale;
         
-        toggleVisibility(true);
-        resume();
-        handlePlayState();
+        visibleToPlayer(true);
+        gameBoardState = EGameBoardState.Ready;
+    }
+    
+    public void onSettingsGameState()
+    {
+        visibleToPlayer(false);
     }
 
     public void onBaseInitialized()
@@ -65,7 +67,7 @@ public class GameBoardManager : MonoBehaviour
         if (levels.Length > 0)
         {
             spawnNewLevel(0);
-            gameBoardState = EGameBoardState.Ready;
+            
         }
     }
 
@@ -74,17 +76,27 @@ public class GameBoardManager : MonoBehaviour
         if (selectedLevel != null)
         {
             Destroy(selectedLevel.LevelObject);
+            gameBoardState = EGameBoardState.Empty;
         }
         
         selectedLevel = levels[index];
-        currentLevel = Instantiate(
+        selectedLevel.LevelObject = Instantiate(
 			selectedLevel.LevelObject, 
 			gameBoardBase.transform.position, 
 			gameBoardBase.transform.rotation
 		);
+        
+        // TODO: add animation of level lifting out of ground
 		// debug scaling. 
 		//levelSpawn.transform.localScale = GlobalValues.boardTransform.localScale;
 		
+        // will be called from each gameBoardLevel
+        onLevelSpawned();
+    }
+
+    public void onLevelSpawned()
+    {
+        gameBoardState = EGameBoardState.Ready;
     }
     
     public (int levelsLength, int selectedIndex) GetLevelsInfo()
@@ -94,48 +106,12 @@ public class GameBoardManager : MonoBehaviour
         return (levelsLength, selectedIndex);
     }
 
-    public void confirmPlayLevel()
+    public bool IsReadyForPlay()
     {
-        // spawn new game mode instance and begin playing
-		currentLevel.GetComponent<LevelManager>().Play();
-    }
-
-    public void onSettingsGameState()
-    {
-        pause();
-        toggleVisibility(false);
+        return gameBoardState == EGameBoardState.Ready;
     }
     
-    public void resume()
-    {
-        // this affects player controller movement
-        // Time.timeScale = 1;
-        isPaused = false;
-    }
-
-    public void pause()
-    {
-        isPaused = true;
-    }
-
-    public bool isPlaying()
-    {
-        return gameBoardState == EGameBoardState.Play;
-    }
-
-    private void handlePlayState()
-    {
-        if (selectedLevel == null)
-        {
-            gameBoardState = EGameBoardState.Ready;
-        }
-        else
-        {
-            gameBoardState = EGameBoardState.Play;
-        }
-    }
-    
-    private void toggleVisibility(bool visible)
+    private void visibleToPlayer(bool visible)
     {
         gameBoardBase?.SetActive(visible);
     }
@@ -149,10 +125,10 @@ public class GameBoardManager : MonoBehaviour
             if (gameBoardManager != null) {
                 return gameBoardManager;
             } else {
-                throw new System.Exception("GameBoardManager script NOT FOUND!!!");
+                throw new Exception("GameBoardManager script NOT FOUND!!!");
             }
         } else {
-            throw new System.Exception("GameObject GameManager NOT FOUND!!!.");
+            throw new Exception("GameObject GameManager NOT FOUND!!!.");
         }
     }
 }
