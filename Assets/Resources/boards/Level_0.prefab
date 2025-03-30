@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 7629475860150197761}
   - component: {fileID: 5987936350226110834}
   m_Layer: 0
-  m_Name: BoardBase2
+  m_Name: Level_0
   m_TagString: GameBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1702,7 +1702,7 @@ GameObject:
   - component: {fileID: 4826545597299598669}
   m_Layer: 0
   m_Name: Path
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2110,6 +2110,10 @@ PrefabInstance:
     - target: {fileID: 1721733881568948, guid: 85455141e64b94a2d8f448519ef5f20d, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721733881568948, guid: 85455141e64b94a2d8f448519ef5f20d, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4918814756855368, guid: 85455141e64b94a2d8f448519ef5f20d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3278,6 +3282,10 @@ PrefabInstance:
     - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_F (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4993681887371262, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_LocalScale.x
@@ -5567,6 +5575,10 @@ PrefabInstance:
     - target: {fileID: 1968433187528282, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_H (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1968433187528282, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4361619384760028, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
       propertyPath: m_LocalScale.x
@@ -9018,6 +9030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_H (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1968433187528282, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4361619384760028, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.002941176
@@ -9326,6 +9342,10 @@ PrefabInstance:
     - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_F (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4993681887371262, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_LocalScale.x
@@ -10538,6 +10558,10 @@ PrefabInstance:
     - target: {fileID: 1834428767915536, guid: 87f1756aff0e04f9da6efe4832969c33, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_G
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834428767915536, guid: 87f1756aff0e04f9da6efe4832969c33, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4011419109529354, guid: 87f1756aff0e04f9da6efe4832969c33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12187,6 +12211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_Dm (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1436782418696976, guid: 2a7a437bb6c864b33a9b5b2b99e1aa38, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4738678315976454, guid: 2a7a437bb6c864b33a9b5b2b99e1aa38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12496,6 +12524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_F
       objectReference: {fileID: 0}
+    - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4993681887371262, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0147058815
@@ -12804,6 +12836,10 @@ PrefabInstance:
     - target: {fileID: 1721733881568948, guid: 85455141e64b94a2d8f448519ef5f20d, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_D (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721733881568948, guid: 85455141e64b94a2d8f448519ef5f20d, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4918814756855368, guid: 85455141e64b94a2d8f448519ef5f20d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14540,6 +14576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_H
       objectReference: {fileID: 0}
+    - target: {fileID: 1968433187528282, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4361619384760028, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.002941176
@@ -15669,6 +15709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_Dm
       objectReference: {fileID: 0}
+    - target: {fileID: 1436782418696976, guid: 2a7a437bb6c864b33a9b5b2b99e1aa38, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4738678315976454, guid: 2a7a437bb6c864b33a9b5b2b99e1aa38, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.44117647
@@ -16452,6 +16496,10 @@ PrefabInstance:
     - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_F (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4993681887371262, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_LocalScale.x
@@ -19178,6 +19226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_H (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1968433187528282, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4361619384760028, guid: 0a557f950020f4718bfc27f17341c88e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.002941176
@@ -20999,6 +21051,10 @@ PrefabInstance:
     - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_F (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4993681887371262, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25951,6 +26007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TB_Env_Mound_F (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1010435356210114, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
+      objectReference: {fileID: 0}
     - target: {fileID: 4993681887371262, guid: 29c4094cdde914cd0b58b1b32039e51c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.002941176
@@ -27241,6 +27301,10 @@ PrefabInstance:
     - target: {fileID: 1834428767915536, guid: 87f1756aff0e04f9da6efe4832969c33, type: 3}
       propertyPath: m_Name
       value: TB_Env_Mound_G (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834428767915536, guid: 87f1756aff0e04f9da6efe4832969c33, type: 3}
+      propertyPath: m_TagString
+      value: Boarder
       objectReference: {fileID: 0}
     - target: {fileID: 4011419109529354, guid: 87f1756aff0e04f9da6efe4832969c33, type: 3}
       propertyPath: m_LocalPosition.x

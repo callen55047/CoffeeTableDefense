@@ -16,12 +16,14 @@ public class GameInstance : MonoBehaviour
         
     private PlayerController playerController;
     private GameBoardManager gameBoardManager;
+    private LevelManager levelManager;
     private EGameState gameState = EGameState.Init;
 
     void Start()
     {
         playerController = PlayerController.fromScene();
         gameBoardManager = gameObject.GetComponent<GameBoardManager>();
+        levelManager = gameObject.GetComponent<LevelManager>();
 
         handleCurrentState();
     }
@@ -56,11 +58,13 @@ public class GameInstance : MonoBehaviour
             case EGameState.Main:
                 playerController.addBaseUI();
                 gameBoardManager.onMainGameState();
+                levelManager.onMainGameState();
                 
                 break;
             case EGameState.Settings:
                 playerController.addSettingsUI();
                 gameBoardManager.onSettingsGameState();
+                levelManager.onSettingsGameState();
                 
                 break;
         }
@@ -95,7 +99,7 @@ public class GameInstance : MonoBehaviour
                 throw new System.Exception("GameInstance script NOT FOUND!!!");
             }
         } else {
-            throw new System.Exception("GameObject GameManager NOT FOUND!!!.");
+            throw new System.Exception("GameObject GameManager NOT FOUND!!!");
         }
     }
 }

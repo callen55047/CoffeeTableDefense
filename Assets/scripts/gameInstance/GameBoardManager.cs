@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using JetBrains.Annotations;
 
 public enum EGameBoardState
 {
@@ -17,7 +18,6 @@ public class GameBoardManager : MonoBehaviour
     private EGameBoardState gameBoardState = EGameBoardState.NotCreated;
     private GameObject gameBoardBase;
     private LevelData selectedLevel;
-	private GameObject currentLevel;
     
     public void onMainGameState()
     {
@@ -67,7 +67,6 @@ public class GameBoardManager : MonoBehaviour
         if (levels.Length > 0)
         {
             spawnNewLevel(0);
-            
         }
     }
 
@@ -109,6 +108,12 @@ public class GameBoardManager : MonoBehaviour
     public bool IsReadyForPlay()
     {
         return gameBoardState == EGameBoardState.Ready;
+    }
+
+    [CanBeNull]
+    public GameObject CurrentLevel()
+    {
+        return selectedLevel.LevelObject;
     }
     
     private void visibleToPlayer(bool visible)

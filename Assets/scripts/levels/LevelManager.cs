@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public enum ELevelState
 {
@@ -11,6 +12,16 @@ public enum ELevelState
 public class LevelManager : MonoBehaviour
 {
     private ELevelState levelState = ELevelState.NotStarted;
+
+    public void onMainGameState()
+    {
+        
+    }
+
+    public void onSettingsGameState()
+    {
+        
+    } 
 
     public void Play()
     {
@@ -29,5 +40,24 @@ public class LevelManager : MonoBehaviour
     public void StopPlay()
     {
         levelState = ELevelState.Stopped;
+    }
+
+    public Transform GetEnemySpawnPoint()
+    {
+        // TODO: grab gameboard and get spawn point
+        return transform;
+    }
+
+    public static LevelManager TransformSceneHandle()
+    {
+        GameObject gameManager = GameObject.Find("GameManager");
+        if (gameManager != null)
+        {
+            return gameManager.GetComponent<LevelManager>();
+        }
+        else
+        {
+            throw new System.Exception("GameObject LevelManager NOT FOUND!!!");
+        }
     }
 }

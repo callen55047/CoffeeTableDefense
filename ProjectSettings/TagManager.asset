@@ -16,6 +16,7 @@ TagManager:
   - Locations
   - ValidPlacement
   - GameBoard
+  - Boarder
   layers:
   - Default
   - TransparentFX
