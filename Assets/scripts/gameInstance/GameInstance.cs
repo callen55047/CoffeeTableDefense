@@ -7,8 +7,6 @@ public enum EGameState
     Settings
 }
 
-// TODO: create game mode and game state classes
-// activate once we have a game board object on the map
 public class GameInstance : MonoBehaviour
 {
     [Header("Editor Debug")] 
@@ -16,14 +14,12 @@ public class GameInstance : MonoBehaviour
         
     private PlayerController playerController;
     private GameBoardManager gameBoardManager;
-    private LevelManager levelManager;
     private EGameState gameState = EGameState.Init;
 
     void Start()
     {
         playerController = PlayerController.fromScene();
         gameBoardManager = gameObject.GetComponent<GameBoardManager>();
-        levelManager = gameObject.GetComponent<LevelManager>();
 
         handleCurrentState();
     }
@@ -58,13 +54,13 @@ public class GameInstance : MonoBehaviour
             case EGameState.Main:
                 playerController.addBaseUI();
                 gameBoardManager.onMainGameState();
-                levelManager.onMainGameState();
+                EventManager.MainGameState();
                 
                 break;
             case EGameState.Settings:
                 playerController.addSettingsUI();
                 gameBoardManager.onSettingsGameState();
-                levelManager.onSettingsGameState();
+                EventManager.SettingsGameState();
                 
                 break;
         }

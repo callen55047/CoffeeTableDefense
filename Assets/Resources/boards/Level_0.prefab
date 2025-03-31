@@ -313,6 +313,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61de8ed608ab141209f5d34494fa2a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Waves:
+  - WaveName: One
+    StartDelay: 10
+    Enemies:
+    - Enemy: {fileID: 1866944711882940, guid: 2db4412e4ce87423cbf2b93e3f746b15, type: 3}
+      SpawnCount: 10
+      SpawnInterval: 5
 --- !u!1 &1717293383199099058
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public enum ELevelState
 {
@@ -9,26 +9,31 @@ public enum ELevelState
     Stopped
 }
 
+// this class will be attached to each playable level
 public class LevelManager : MonoBehaviour
 {
+    [Header("Game Mode Settings")]
+    public List<WaveData> Waves; 
+    
     private ELevelState levelState = ELevelState.NotStarted;
 
-    public void onMainGameState()
+    public void Start()
     {
+        // subscribe to global events
+        EventManager.OnMainGameState += onMainGameState;
+        EventManager.OnSettingsGameState += onSettingsGameState;
         
+        // get game object component for enemy spawn
     }
-
-    public void onSettingsGameState()
-    {
-        
-    } 
 
     public void Play()
     {
-        // get transform of enemy spawn
-        // spawn the enemySpawn object
         Debug.Log("level manager Play");
         levelState = ELevelState.Play;
+        
+        // create enemy spawner(spawn point, Enemy spawn data) for each enemy in wave
+        // calls back once enemies have run out
+        // continue to next wave, or complete
     }
 
     public void Pause()
@@ -47,8 +52,18 @@ public class LevelManager : MonoBehaviour
         // TODO: grab gameboard and get spawn point
         return transform;
     }
+    
+    private void onMainGameState()
+    {
+        // keep in paused state until player decied to continue again
+    }
 
-    public static LevelManager TransformSceneHandle()
+    private void onSettingsGameState()
+    {
+        Pause();
+    } 
+
+    public static LevelManager fromScene()
     {
         GameObject gameManager = GameObject.Find("GameManager");
         if (gameManager != null)
